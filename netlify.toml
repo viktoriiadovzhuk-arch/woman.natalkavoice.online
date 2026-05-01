@@ -1,0 +1,6 @@
+# Netlify config — окремий сайт "Голос Жінки"
+# Деплоїться на woman.natalkavoice.online
+
+[build]
+  functions = "netlify/functions"
+  publish   = "."

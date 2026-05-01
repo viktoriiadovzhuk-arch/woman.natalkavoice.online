@@ -1,0 +1,9 @@
+{
+  "name": "natalka-voice-functions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Netlify Functions для курсу Голос Жінки",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

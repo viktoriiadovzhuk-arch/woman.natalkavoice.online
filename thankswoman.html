@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Дякуємо — Голос Жінки</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F5EFEA;
+  --ink:#2B2B2B;
+  --ink-faint:#7A6F66;
+  --burgundy:#5A1F1F;
+  --burgundy-deep:#3A0F0F;
+  --gold:#C9A96E;
+  --display:'Cormorant Garamond',serif;
+  --body:'Lato',sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-weight:300;font-size:15px;line-height:1.6}
+.wrap{max-width:560px;margin:0 auto;padding:48px 20px 80px;text-align:center}
+
+/* nav */
+.nav{display:flex;justify-content:center;align-items:center;margin-bottom:36px}
+.brand{font-family:var(--display);font-style:italic;font-size:22px;color:var(--burgundy);letter-spacing:.5px;font-weight:500;text-decoration:none}
+
+/* card */
+.card{background:#fff;border-radius:32px;padding:40px 26px;box-shadow:0 30px 80px rgba(43,43,43,.08);border:1px solid rgba(201,169,110,.15);position:relative;overflow:hidden}
+.card::before{content:'✦';position:absolute;top:18px;left:24px;color:var(--gold);font-size:14px;opacity:.4}
+.card::after{content:'✦';position:absolute;bottom:18px;right:24px;color:var(--gold);font-size:14px;opacity:.4}
+
+/* states */
+.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+h1{font-family:var(--display);font-style:italic;font-size:42px;line-height:1.05;margin:0 0 18px;color:var(--burgundy);font-weight:500;letter-spacing:-1px}
+.lead{font-size:16px;line-height:1.55;color:var(--ink-faint);margin:0 0 28px}
+
+/* check icon */
+.check-icon{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#B8945B);margin:0 auto 24px;display:flex;align-items:center;justify-content:center;color:white;font-size:38px;box-shadow:0 15px 40px rgba(201,169,110,.4);font-family:var(--display)}
+
+/* booking summary */
+.booking-summary{background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.3);border-radius:20px;padding:24px;margin:24px 0;text-align:left}
+.bs-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0}
+.bs-row:not(:last-child){border-bottom:1px dashed rgba(201,169,110,.3)}
+.bs-label{font-size:12px;color:var(--ink-faint);letter-spacing:.5px;text-transform:uppercase;font-weight:700}
+.bs-value{font-family:var(--display);font-size:20px;color:var(--burgundy);font-weight:600}
+.bs-value.bs-amount{font-size:28px}
+
+/* personal link */
+.personal-link{margin:24px 0;background:linear-gradient(135deg,var(--burgundy),var(--burgundy-deep));color:var(--cream);border-radius:20px;padding:24px;text-align:left;border:1px solid rgba(201,169,110,.4)}
+.pl-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+.pl-title{font-family:var(--display);font-style:italic;font-size:22px;font-weight:500;margin:0 0 14px;line-height:1.2}
+.pl-url{background:rgba(255,255,255,.1);border:1px dashed rgba(201,169,110,.5);border-radius:12px;padding:14px;font-size:13px;font-family:'Lato',monospace;word-break:break-all;line-height:1.4;margin-bottom:14px;color:var(--cream)}
+.pl-actions{display:flex;gap:10px;flex-wrap:wrap}
+.pl-btn{flex:1;min-width:140px;padding:14px 18px;border-radius:999px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;text-align:center;cursor:pointer;border:none;transition:all .25s var(--ease);font-family:var(--body)}
+.pl-btn-primary{background:var(--gold);color:var(--burgundy-deep)}
+.pl-btn-primary:hover,.pl-btn-primary:active{background:#D9B97E;transform:translateY(-1px)}
+.pl-btn-secondary{background:rgba(255,255,255,.1);color:var(--cream);border:1px solid rgba(201,169,110,.4)}
+.pl-btn-secondary:hover,.pl-btn-secondary:active{background:rgba(255,255,255,.18)}
+.pl-note{margin-top:14px;font-size:12px;opacity:.75;line-height:1.5}
+
+/* deadline highlight */
+.deadline{background:rgba(90,31,31,.06);border-radius:14px;padding:14px 18px;margin:16px 0;font-size:14px;color:var(--burgundy);font-weight:600;text-align:center;line-height:1.4}
+.deadline strong{font-family:var(--display);font-style:italic;font-size:18px;display:block;margin-top:4px;letter-spacing:.5px}
+
+/* CTA buttons */
+.cta-btn{display:inline-block;padding:18px 36px;border-radius:999px;text-decoration:none;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;cursor:pointer;border:none;font-family:var(--body);transition:all .25s var(--ease);box-sizing:border-box}
+.cta-primary{background:var(--burgundy);color:var(--cream);box-shadow:0 15px 40px rgba(90,31,31,.25)}
+.cta-primary:hover{background:var(--burgundy-deep)}
+.cta-secondary{background:transparent;color:var(--burgundy);border:1px solid rgba(90,31,31,.3);margin-top:10px}
+
+/* loading / error */
+.loading{padding:40px 20px;color:var(--ink-faint);font-size:14px;text-align:center}
+.spinner{width:24px;height:24px;border:3px solid rgba(90,31,31,.2);border-top-color:var(--burgundy);border-radius:50%;animation:spin .8s linear infinite;display:inline-block;margin-right:12px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-box{background:#FFE8E8;color:#B23232;padding:20px;border-radius:14px;font-size:14px;margin:20px 0;text-align:left;line-height:1.5}
+
+@media (max-width:480px){
+  h1{font-size:34px}
+  .card{padding:32px 22px}
+  .booking-summary{padding:20px 16px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="nav">
+    <a href="/" class="brand">Голос Жінки</a>
+  </div>
+
+  <div class="card">
+    <!-- LOADING -->
+    <div id="loadingState" class="loading">
+      <span class="spinner"></span>Перевіряю статус оплати...
+    </div>
+
+    <!-- ═══ SUCCESS — повна оплата ═══ -->
+    <div id="successFull" style="display:none">
+      <div class="check-icon">✓</div>
+      <div class="eyebrow">Дякуємо за довіру</div>
+      <h1>Ти в програмі</h1>
+      <p class="lead">Оплата успішно отримана.<br>Чекаємо тебе на старті — <strong>4 травня</strong>.</p>
+      <div class="deadline" style="background:rgba(42,107,62,.08);color:#2A6B3E">
+        Найближчим часом ти отримаєш лист<br>
+        з інструкцією як приєднатись
+        <strong>📧 Перевір свою пошту</strong>
+      </div>
+      <a href="/" class="cta-btn cta-secondary">На головну</a>
+    </div>
+
+    <!-- ═══ SUCCESS — бронь ═══ -->
+    <div id="successBooking" style="display:none">
+      <div class="check-icon">✓</div>
+      <div class="eyebrow">Місце заброньовано</div>
+      <h1>Дякуємо!<br>Ти на програмі</h1>
+      <p class="lead">Твоє місце на курсі «Голос Жінки» зафіксоване.<br>Залишилось доплатити решту до старту програми.</p>
+
+      <div class="booking-summary">
+        <div class="bs-row">
+          <span class="bs-label">Тариф</span>
+          <span class="bs-value" id="bsTier">—</span>
+        </div>
+        <div class="bs-row">
+          <span class="bs-label">Сплачено</span>
+          <span class="bs-value" id="bsPaid">1 000 ₴</span>
+        </div>
+        <div class="bs-row">
+          <span class="bs-label">До доплати</span>
+          <span class="bs-value bs-amount" id="bsRemainder">—</span>
+        </div>
+      </div>
+
+      <div class="deadline">
+        Дедлайн доплати<strong>4 травня · 10:00</strong>
+      </div>
+
+      <!-- Персональне посилання на доплату -->
+      <div class="personal-link">
+        <div class="pl-eyebrow">Твоє персональне посилання</div>
+        <div class="pl-title">Доплати у зручний для тебе момент</div>
+        <div class="pl-url" id="completionUrlBox">https://natalkavoice.online/finish-payment?t=...</div>
+        <div class="pl-actions">
+          <a href="#" id="completionUrlLink" class="pl-btn pl-btn-primary">Доплатити зараз</a>
+          <button type="button" class="pl-btn pl-btn-secondary" id="copyUrlBtn">Скопіювати</button>
+        </div>
+        <div class="pl-note">
+          📧 Це посилання також надіслано тобі на пошту.<br>
+          Збережи його — за ним можеш повернутися до доплати у будь-який час до 4 травня.
+        </div>
+      </div>
+
+      <a href="/" class="cta-btn cta-secondary" style="margin-top:14px;display:inline-block">На головну</a>
+    </div>
+
+    <!-- ═══ SUCCESS — доплата залишку ═══ -->
+    <div id="successFinish" style="display:none">
+      <div class="check-icon">✓</div>
+      <div class="eyebrow">Курс повністю оплачено</div>
+      <h1>Готово!<br>Ти з нами</h1>
+      <p class="lead">Доплату отримано.<br>Курс «Голос Жінки» — твій.</p>
+      <div class="deadline" style="background:rgba(42,107,62,.08);color:#2A6B3E">
+        Чекаємо тебе на старті — <strong>4 травня</strong>
+        Перевір свою пошту 📧
+      </div>
+      <a href="/" class="cta-btn cta-secondary">На головну</a>
+    </div>
+
+    <!-- ═══ PROCESSING — статус ще не success ═══ -->
+    <div id="processingState" style="display:none">
+      <div class="eyebrow">Обробка платежу</div>
+      <h1>Платіж<br>обробляється</h1>
+      <p class="lead">Зачекай хвилинку — банк ще підтверджує транзакцію.</p>
+      <div class="loading"><span class="spinner"></span>Перевіряємо знову через 5 секунд...</div>
+      <a href="/" class="cta-btn cta-secondary">На головну</a>
+    </div>
+
+    <!-- ═══ ERROR ═══ -->
+    <div id="errorState" style="display:none">
+      <div class="eyebrow">Щось не так</div>
+      <h1>Платіж не пройшов</h1>
+      <p class="lead">Можливо, оплата не була завершена або сталася помилка.</p>
+      <div class="error-box" id="errorMsg"></div>
+      <a href="/#pricing" class="cta-btn cta-primary">Спробувати ще раз</a>
+      <br>
+      <a href="/" class="cta-btn cta-secondary">На головну</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const kindFromUrl = params.get('kind');           // 'booking' | 'finish' | null
+const tokenFromUrl = params.get('t');             // booking token
+
+// Read sessionStorage (set by lendings)
+const invoiceId = sessionStorage.getItem('mono_voice_invoice_id');
+const tierStored = sessionStorage.getItem('mono_voice_tier');
+const kindStored = sessionStorage.getItem('mono_voice_kind'); // 'full' | 'booking' | 'finish'
+const emailStored = sessionStorage.getItem('mono_voice_email');
+
+// Pick the kind: prefer URL, fallback to sessionStorage
+const kind = kindFromUrl || kindStored || 'full';
+
+const SITE_URL = 'https://natalkavoice.online';
+
+function show(id) {
+  ['loadingState','successFull','successBooking','successFinish','processingState','errorState']
+    .forEach(s => { const el = document.getElementById(s); if (el) el.style.display = (s === id) ? '' : 'none'; });
+}
+
+function showError(msg) {
+  document.getElementById('errorMsg').textContent = msg;
+  show('errorState');
+}
+
+// ============ BOOKING success rendering ============
+async function renderBookingSuccess(token) {
+  // Завантажуємо деталі броні з backend
+  try {
+    const res = await fetch('/.netlify/functions/booking-resolve', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token })
+    });
+    if (!res.ok) throw new Error('not found');
+    const b = await res.json();
+
+    document.getElementById('bsTier').textContent = b.tierName;
+    document.getElementById('bsPaid').textContent = b.bookingAmount.toLocaleString('uk-UA').replace(/,/g,' ') + ' ₴';
+    document.getElementById('bsRemainder').textContent = b.remainder.toLocaleString('uk-UA').replace(/,/g,' ') + ' ₴';
+
+    const completionUrl = `${SITE_URL}/finish-payment?t=${token}`;
+    document.getElementById('completionUrlBox').textContent = completionUrl;
+    document.getElementById('completionUrlLink').href = completionUrl;
+
+    document.getElementById('copyUrlBtn').addEventListener('click', () => {
+      navigator.clipboard?.writeText(completionUrl).then(() => {
+        const btn = document.getElementById('copyUrlBtn');
+        const orig = btn.textContent;
+        btn.textContent = '✓ Скопійовано';
+        setTimeout(() => { btn.textContent = orig; }, 1500);
+      });
+    });
+
+    show('successBooking');
+  } catch (e) {
+    console.error('Booking resolve failed:', e);
+    // Все одно показуємо просте повідомлення про бронь
+    document.getElementById('bsTier').textContent = tierStored ? tierStored.toUpperCase() : '—';
+    document.getElementById('bsRemainder').textContent = '—';
+    document.getElementById('completionUrlBox').textContent = '(посилання надіслане на пошту)';
+    document.getElementById('completionUrlLink').style.display = 'none';
+    document.getElementById('copyUrlBtn').style.display = 'none';
+    show('successBooking');
+  }
+}
+
+// ============ Status polling ============
+async function checkStatus() {
+  if (!invoiceId) {
+    // Якщо є kind=booking + токен (URL), значить редірект з Mono після броні —
+    // покажемо успіх без додаткової перевірки
+    if (kind === 'booking' && tokenFromUrl) {
+      renderBookingSuccess(tokenFromUrl);
+      return;
+    }
+    if (kind === 'finish') {
+      show('successFinish');
+      return;
+    }
+    showError('Не знайдено інформації про оплату. Якщо ти оплатила — перевір пошту, ми зв\'яжемось.');
+    return;
+  }
+
+  try {
+    const res = await fetch(`/.netlify/functions/mono-voice-status?invoiceId=${encodeURIComponent(invoiceId)}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    if (data.status === 'success') {
+      // Розділяємо за типом операції
+      if (kind === 'booking' && tokenFromUrl) {
+        renderBookingSuccess(tokenFromUrl);
+      } else if (kind === 'finish') {
+        show('successFinish');
+      } else {
+        show('successFull');
+      }
+      // Очищаємо sessionStorage
+      sessionStorage.removeItem('mono_voice_invoice_id');
+      sessionStorage.removeItem('mono_voice_tier');
+      sessionStorage.removeItem('mono_voice_kind');
+      sessionStorage.removeItem('mono_voice_email');
+    } else if (data.status === 'failure' || data.status === 'expired' || data.status === 'reversed') {
+      showError(`Статус: ${data.status}. ${data.failureReason || 'Спробуй знову.'}`);
+    } else {
+      // 'created', 'processing', 'hold' etc.
+      show('processingState');
+      setTimeout(checkStatus, 5000);
+    }
+  } catch (e) {
+    console.error('Status check failed:', e);
+    showError('Не вдалося перевірити статус. Якщо платіж пройшов — перевір пошту.');
+  }
+}
+
+checkStatus();
+</script>
+</body>
+</html>
